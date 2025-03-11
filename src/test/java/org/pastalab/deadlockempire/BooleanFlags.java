@@ -26,16 +26,9 @@ public class BooleanFlags extends DeadlockEmpireTestBase {
             while (true) {
                 // Guard - wait until flag is false
                 while (flag != false) {
-                    // Empty statement, just waiting
                 }
-
-                // Set flag to signal entering critical section
                 flag = true;
-
-                // Enter critical section
                 criticalSection();
-
-                // Reset flag when done
                 flag = false;
             }
         }, "First Army");
@@ -46,14 +39,8 @@ public class BooleanFlags extends DeadlockEmpireTestBase {
                 while (flag != false) {
                     // Empty statement, just waiting
                 }
-
-                // Set flag to signal entering critical section
                 flag = true;
-
-                // Enter critical section
                 criticalSection();
-
-                // Reset flag when done
                 flag = false;
             }
         }, "Second Army");
