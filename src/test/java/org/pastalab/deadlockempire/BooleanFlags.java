@@ -17,14 +17,12 @@ import org.pastalab.fray.junit.junit5.annotations.ConcurrencyTest;
  */
 @ExtendWith(FrayTestExtension.class)
 public class BooleanFlags extends DeadlockEmpireTestBase {
-    // Shared variable between threads
     private volatile boolean flag = false;
 
     @ConcurrencyTest
     public void runTest() {
         Thread firstArmy = new Thread(() -> {
             while (true) {
-                // Guard - wait until flag is false
                 while (flag != false) {
                 }
                 flag = true;
@@ -35,9 +33,7 @@ public class BooleanFlags extends DeadlockEmpireTestBase {
 
         Thread secondArmy = new Thread(() -> {
             while (true) {
-                // Guard - wait until flag is false
                 while (flag != false) {
-                    // Empty statement, just waiting
                 }
                 flag = true;
                 criticalSection();

@@ -33,8 +33,8 @@ panels, a scheduling panel, a timeline panel, and a resource panel.
 Scheduling panel shows all executing threads in your program. It shows the stack 
 trace of each thread as well. You may also click a stack trace to navigate to the source code.
 
-> [!NOTE]  
-> Currently the debugger only opens a file if it is in source directory. It does not open source files
+> [!NOTE]
+> You may only view files in the source directory. It does not open source files
 > in JDK or library.
 
 You may also use the drop-down menu to select a thread to view. Once you have decided which 
