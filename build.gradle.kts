@@ -1,6 +1,6 @@
 plugins {
   id("java")
-  id("org.pastalab.fray.gradle") version "0.3.1"
+  id("org.pastalab.fray.gradle") version "0.6.7-SNAPSHOT"
 }
 
 group = "org.pastalab.deadlockempire"
@@ -12,7 +12,7 @@ repositories {
 
 java {
   toolchain {
-    languageVersion.set(JavaLanguageVersion.of(21))
+    languageVersion.set(JavaLanguageVersion.of(23))
   }
 }
 

@@ -5,7 +5,7 @@
 
   outputs = { self, nixpkgs }:
     let
-      javaVersion = 21; # Change this value to update the whole stack
+      javaVersion = 23; 
 
       supportedSystems = [ "x86_64-linux" "aarch64-linux" "x86_64-darwin" "aarch64-darwin" ];
       forEachSupportedSystem = f: nixpkgs.lib.genAttrs supportedSystems (system: f {
@@ -26,11 +26,11 @@
       devShells = forEachSupportedSystem ({ pkgs }: {
         default = pkgs.mkShell {
           packages = with pkgs; [
-            gcc
-            cmake
-            gradle
             jdk
           ];
+          shellHook = ''
+            export JDK23_HOME="${pkgs.jdk.home}"
+          '';
         };
       });
     };
