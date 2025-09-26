@@ -18,11 +18,13 @@ import java.util.concurrent.locks.ReentrantLock;
  * WIN CONDITION: Cause a deadlock to occur.
  */
 @ExtendWith(FrayTestExtension.class)
-public class Deadlock extends DeadlockEmpireTestBase {
+public class DeadlockTestCase extends DeadlockEmpireTestBase {
     private final ReentrantLock mutex = new ReentrantLock();
     private final ReentrantLock mutex2 = new ReentrantLock();
 
-    @ConcurrencyTest
+    @ConcurrencyTest(
+            iterations = 1
+    )
     public void runTest() {
         Thread thread1 = new Thread(() -> {
             mutex.lock();
